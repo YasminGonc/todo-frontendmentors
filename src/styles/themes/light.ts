@@ -1,3 +1,6 @@
+import bannerMobile from '../../assets/bg-mobile-light.jpg';
+import bannerDesktop from '../../assets/bg-desktop-light.jpg';
+
 export const lightTheme = {
     title: 'light',
 
@@ -11,8 +14,10 @@ export const lightTheme = {
         'gray-700': 'hsl(235, 19%, 35%)',
 
         blue: 'hsl(220, 98%, 61%)',
-        gradient: 'linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%)',
+        gradient: 'linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%))',
 
-        background: 'hsl(0, 0%, 98%)'
+        background: 'hsl(0, 0%, 98%)',
+        backgroundImageMobile: bannerMobile,
+        backgroundImageDesktop: bannerDesktop
     }
 }

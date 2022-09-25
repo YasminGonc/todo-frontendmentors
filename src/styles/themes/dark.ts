@@ -1,3 +1,6 @@
+import bannerMobile from '../../assets/bg-mobile-dark.jpg';
+import bannerDesktop from '../../assets/bg-desktop-dark.jpg';
+
 export const darkTheme = {
     title: 'dark',
 
@@ -11,9 +14,11 @@ export const darkTheme = {
         'gray-700': 'hsl(235, 21%, 11%)', //Very Dark Blue
 
         blue: 'hsl(220, 98%, 61%)',
-        gradient: 'linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%)',
+        gradient: 'linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%))',
 
-        background: 'hsl(235, 21%, 11%)'
+        background: 'hsl(235, 21%, 11%)',
+        backgroundImageMobile: bannerMobile,
+        backgroundImageDesktop: bannerDesktop
     }
 
 }
