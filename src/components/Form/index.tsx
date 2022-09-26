@@ -1,7 +1,6 @@
-import { Check } from 'phosphor-react';
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { FormContainer, Input, Button } from './Form.styles'
+import { FormContainer, Input, Button } from './styles'
 
 export interface toDos {
     id: string;
@@ -14,18 +13,9 @@ interface FormProps {
 }
 
 export function Form({ onNewToDo }: FormProps) {
-    const [toDos, setToDos] = useState([
-        {
-            id: '1',
-            content: 'teste 1',
-            checked: false
-        },
-        {
-            id: '2',
-            content: 'teste 2',
-            checked: false
-        }
-    ]);
+    const [toDos, setToDos] = useState<toDos[]>([]);
+
+    onNewToDo(toDos); //quando coloco esse código aparece o alerta de que não é possível atualizar o App enquanto outro componente é renderizado. Se eu tirar esse código tenho problemas na renderização do dado na tela, ele aparece com um "delay"
 
     const [newToDos, setNewToDos] = useState('');
     
@@ -46,10 +36,6 @@ export function Form({ onNewToDo }: FormProps) {
         onNewToDo(toDos);
     }
 
-    //console.log(`newState é ${newToDos}`);
-    console.log(`todos é ${toDos}`);
-
-
     return (
         <FormContainer onSubmit={handleNewToDo}>
             <Input
@@ -61,7 +47,6 @@ export function Form({ onNewToDo }: FormProps) {
             />
             <Button type='submit'>
                 Criar
-                {/* <PlusCircle size={20} /> */}
             </Button>
         </FormContainer>
     );

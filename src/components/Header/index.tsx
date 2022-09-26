@@ -1,7 +1,7 @@
 import { Moon } from "phosphor-react";
-import { Form, toDos } from "../Form/Form";
+import { Form, toDos } from "../Form";
 
-import { HeaderContainer, HeaderWrapper } from "./Header.styles";
+import { HeaderContainer, HeaderWrapper } from "./styles";
 
 interface HeaderProps {
     onNewToDo: (toDos: Array<toDos> | toDos[]) => void;

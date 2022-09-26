@@ -5,10 +5,10 @@ import { darkTheme } from './styles/themes/dark'
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 
-import { Header } from './components/Header/Header'
+import { Header } from './components/Header'
 import { List } from './components/List'
 import { useState } from 'react'
-import { toDos } from './components/Form/Form'
+import { toDos } from './components/Form'
 
 
 export function App() {

@@ -5,7 +5,7 @@ import { Trash } from 'phosphor-react';
 import { useDrag, useDrop } from 'react-dnd'
 
 import { CheckboxContainer, CheckboxRoot, TodoContainer, CheckIcon, Button } from './styles';
-import { toDos } from '../Form/Form';
+import { toDos } from '../Form';
 
 interface toDoProps {
     data: Array<toDos> | toDos[];
@@ -31,18 +31,17 @@ export function ToDo({data}: toDoProps) {
 
     dragRef(dropRef(ref));
 
-    const [toDosT, setToDos] = useState<toDos[]>([
-        {
-            id: '1',
-            content: 'teste 1',
-            checked: false
-        },
-        {
-            id: '2',
-            content: 'teste 2',
-            checked: false
+    const [toDoData, setToDoData] = useState<toDos[]>([]);
+
+    //useState(data) --> isso dá loop de renderização
+
+    function handleDoneToDos(checked: boolean | 'indeterminate', toDoId: toDos['id'], toDoChecked: toDos['checked']) {
+        if(checked) {
+            const doneToDos = data.map(toDo => {return toDo.id == toDoId ? {...toDo, checked: !toDo.checked} : {...toDo, checked: toDo.checked}});
+
+            setToDoData(doneToDos);
         }
-    ]);
+    }
 
     return (
         <>
@@ -50,7 +49,7 @@ export function ToDo({data}: toDoProps) {
                 return (
                     <TodoContainer ref={ref} key={toDo.id}>
                         <CheckboxContainer>
-                            <CheckboxRoot>
+                            <CheckboxRoot onCheckedChange={(checked) => handleDoneToDos(checked, toDo.id, toDo.checked)}>
                                 <Checkbox.Indicator id={toDo.id}>
                                     <CheckIcon />
                                 </Checkbox.Indicator>
