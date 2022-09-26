@@ -12,24 +12,25 @@ interface toDoProps {
 }
 
 export function ToDo({data}: toDoProps) {
-    const ref = useRef<HTMLDivElement>(null);
+    // funções para o Drag and Drop (colocar ref={ref} no TodoContainer)
+    // const ref = useRef<HTMLDivElement>(null);
 
-    const [{ isDragging }, dragRef] = useDrag(() => ({
-        type: 'TODO',
-        collect: (monitor) => ({
-            isDragging: monitor.isDragging(),
-        }),
-    }));
+    // const [{ isDragging }, dragRef] = useDrag(() => ({
+    //     type: 'TODO',
+    //     collect: (monitor) => ({
+    //         isDragging: monitor.isDragging(),
+    //     }),
+    // }));
 
-    const [, dropRef] = useDrop(() => ({
-        accept: 'TODO',
-        hover(item, monitor) {
+    // const [, dropRef] = useDrop(() => ({
+    //     accept: 'TODO',
+    //     hover(item, monitor) {
             
-        },
+    //     },
 
-    }));
+    // }));
 
-    dragRef(dropRef(ref));
+    // dragRef(dropRef(ref));
 
     const [toDoData, setToDoData] = useState<toDos[]>([]);
 
@@ -47,7 +48,7 @@ export function ToDo({data}: toDoProps) {
         <>
             {data.map((toDo, index) => {
                 return (
-                    <TodoContainer ref={ref} key={toDo.id}>
+                    <TodoContainer key={toDo.id}>
                         <CheckboxContainer>
                             <CheckboxRoot onCheckedChange={(checked) => handleDoneToDos(checked, toDo.id, toDo.checked)}>
                                 <Checkbox.Indicator id={toDo.id}>
