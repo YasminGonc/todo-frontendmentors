@@ -1,9 +1,18 @@
 import { Moon } from "phosphor-react";
-import { Form } from "../Form/Form";
+import { Form, toDos } from "../Form/Form";
 
 import { HeaderContainer, HeaderWrapper } from "./Header.styles";
 
-export function Header() {
+interface HeaderProps {
+    onNewToDo: (toDos: Array<toDos> | toDos[]) => void;
+}
+
+export function Header({onNewToDo}: HeaderProps) {
+
+    function newToDo(toDos: Array<toDos> | toDos[]) {
+        onNewToDo(toDos);
+    }
+
     return(
         <HeaderContainer>
             <HeaderWrapper>
@@ -13,7 +22,9 @@ export function Header() {
                 </button>
             </HeaderWrapper>
 
-            <Form />
+            <Form 
+                onNewToDo={newToDo}
+            />
         </HeaderContainer>
     );
 }

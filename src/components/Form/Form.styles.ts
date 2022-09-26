@@ -23,13 +23,13 @@ export const Input = styled.input`
     border-radius: 4px;
     background: ${props => props.theme.colors["gray-100"]};
     border: 0;
-    padding: 0.4rem;
-    font-size: 0.75rem;
+    padding: 0.5rem;
+    font-size: 0.875rem;
 `;
 
 export const Button = styled.button`
     border-radius: 4px;
-    padding: 0.4rem;
+    padding: 0.5rem;
     font-size: 0.875rem;
     border: 0;
     background-image: ${props => props.theme.colors.gradient};

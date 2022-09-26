@@ -2,7 +2,7 @@
 
 Projeto de upgrade do ToDo List criado anteriormente no desafio do módulo 1 do Ignite. O layout dessa aplicação foi baseada no design sugerido pelo [Front-end Mentors](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW).
 <br>
-Essa nova aplicação ganha novas funcionalidades como tema light e dark e ainda a possibilidade de reordenar as tarefas criadas. 
+Essa nova aplicação ganha novas funcionalidades como tema light e dark. 
 
 ## Construção
 

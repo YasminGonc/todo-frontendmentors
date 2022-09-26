@@ -14,7 +14,8 @@ export const darkTheme = {
         'gray-700': 'hsl(235, 21%, 11%)', //Very Dark Blue
 
         blue: 'hsl(220, 98%, 61%)',
-        gradient: 'linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%))',
+        purple: 'hsl(280, 87%, 65%)',
+        gradient: 'linear-gradient(135deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%))',
 
         background: 'hsl(235, 21%, 11%)',
         backgroundImageMobile: bannerMobile,
