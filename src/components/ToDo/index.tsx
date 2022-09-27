@@ -38,9 +38,9 @@ export function ToDo({ data, onDeleteToDo, onHandleDoneToDos }: toDoProps) {
         <>
             {data.map((toDo, index) => {
                 return (
-                    <TodoContainer key={toDo.id} ref={ref}>
+                    <TodoContainer key={toDo.id} ref={ref} checked={toDo.checked ? true : false}>
                         <CheckboxContainer>
-                            <CheckboxRoot onCheckedChange={(checked) => onHandleDoneToDos(checked, toDo.id, toDo.checked)}>
+                            <CheckboxRoot checked={toDo.checked} onCheckedChange={(checked) => onHandleDoneToDos(checked, toDo.id, toDo.checked)}>
                                 <Checkbox.Indicator id={toDo.id}>
                                     <CheckIcon />
                                 </Checkbox.Indicator>

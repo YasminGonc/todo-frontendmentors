@@ -44,19 +44,20 @@ export function App() {
     }
   }
 
-  function filterToDosByCompletedOnes() {
-    const completedToDos = toDoData.filter(toDo => toDo.checked);
+  const [doneToDos, setDoneToDos] = useState<toDos[]>([]);
 
-    setToDoData(completedToDos); //pensar em mudar pq fazendo isso eu altero o estado do todoData
-     //pensar em mudar pq fazendo isso eu altero o estado do todoData
+  function filterToDosByCompletedOnes() {
+    const completedToDos = toDoData.filter(toDo => toDo.checked == true);
+
+    setDoneToDos(completedToDos);
   }
+  
+  const [activeToDos, setActiveToDos] = useState<toDos[]>([]);
 
   function filterToDosByActiveOnes() {
-    const activeToDos = toDoData.filter(toDo => !toDo.checked);
+    const activeToDoOnes = toDoData.filter(toDo => toDo.checked == false);
 
-    setToDoData(activeToDos);
-
-    //setToDoData((state) => state.filter(toDo => !toDo.checked)); //pensar em mudar pq fazendo isso eu altero o estado do todoData
+    setActiveToDos(activeToDoOnes);//esse não está funcionando
   }
 
   return (
@@ -70,6 +71,8 @@ export function App() {
         />
         <List 
           data={toDoData}
+          toDoCompleted={doneToDos}
+          toDoActive={activeToDos}
           onDeleteToDo={deleteToDo}
           onHandleDoneToDos={handleDoneToDos}
           onFilterToDosByCompletedOnes={filterToDosByCompletedOnes}

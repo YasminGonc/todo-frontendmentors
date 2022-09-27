@@ -2,7 +2,11 @@ import styled, { css } from "styled-components";
 import * as Checkbox from '@radix-ui/react-checkbox';
 import { Check } from 'phosphor-react';
 
-export const TodoContainer = styled.div`
+interface Props {
+    checked: boolean;
+}
+
+export const TodoContainer = styled.div<Props>`
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -10,17 +14,15 @@ export const TodoContainer = styled.div`
     padding: 0.5rem;
     border-bottom: 1px solid ${props => props.theme.colors["gray-200"]};
 
+    //background-color: ${props => props.checked ? props.theme.colors["gray-100"] : props.theme.colors["gray-100"]};
     background-color: ${props => props.theme.colors["gray-100"]};
+    opacity: ${props => props.checked ? '0.6' : 'none'};
     color: ${props => props.theme.colors["gray-500"]};
     font-size: 0.875rem;
 
     cursor: grab;
 `
-interface LabelProps {
-    checked: boolean;
-}
-
-export const Label = styled.label<LabelProps>`
+export const Label = styled.label<Props>`
     text-decoration: ${props => props.checked ? 'line-through' : 'none'};
 `
 export const CheckboxContainer = styled.div`
