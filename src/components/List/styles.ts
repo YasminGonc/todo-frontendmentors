@@ -34,4 +34,12 @@ export const ButtonContainer = styled.div`
         }
     }
 `
+export const ZeroToDosContainer = styled.div`
+    margin-top: 6rem;
+    color: ${props => props.theme.colors.blue};
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
 

@@ -9,31 +9,25 @@ export interface toDos {
 }
 
 interface FormProps {
-    onNewToDo: (toDos: Array<toDos> | toDos[]) => void;
+    onNewToDo: (toDos: toDos) => void;
 }
 
 export function Form({ onNewToDo }: FormProps) {
-    const [toDos, setToDos] = useState<toDos[]>([]);
-
-    onNewToDo(toDos); //quando coloco esse código aparece o alerta de que não é possível atualizar o App enquanto outro componente é renderizado. Se eu tirar esse código tenho problemas na renderização do dado na tela, ele aparece com um "delay"
 
     const [newToDos, setNewToDos] = useState('');
-    
+
     function handleNewToDoChange(event: ChangeEvent<HTMLInputElement>) {
         setNewToDos(event.target.value);
     }
 
     function handleNewToDo(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
-        setToDos([...toDos,
-            {
+        onNewToDo({
                 id: uuidv4(),
                 content: newToDos,
                 checked: false
-            }
-        ]);
+        });
         setNewToDos('');
-        onNewToDo(toDos);
     }
 
     return (

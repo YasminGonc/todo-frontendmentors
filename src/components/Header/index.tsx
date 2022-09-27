@@ -4,13 +4,13 @@ import { Form, toDos } from "../Form";
 import { HeaderContainer, HeaderWrapper } from "./styles";
 
 interface HeaderProps {
-    onNewToDo: (toDos: Array<toDos> | toDos[]) => void;
+    onNewToDo: (toDos: toDos) => void;
     onToggleTheme: () => void;
 }
 
 export function Header({onNewToDo, onToggleTheme}: HeaderProps) {
 
-    function newToDo(toDos: Array<toDos> | toDos[]) {
+    function newToDo(toDos: toDos) {
         onNewToDo(toDos);
     }
 

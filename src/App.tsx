@@ -18,10 +18,10 @@ export function App() {
     setTheme(theme.title == 'light' ? darkTheme : lightTheme)
   }
 
-  const [toDoData, setToDoData] = useState<Array<toDos> | toDos[]>([]);
+  const [toDoData, setToDoData] = useState<toDos[]>([]);
 
-  function newToDo(toDos: Array<toDos> | toDos[]) {
-    setToDoData(toDos);
+  function newToDo(toDos: toDos) {
+    setToDoData(state => [...state, toDos]);
   }
 
   return (

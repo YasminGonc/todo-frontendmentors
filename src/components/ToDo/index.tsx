@@ -8,7 +8,7 @@ import { CheckboxContainer, CheckboxRoot, TodoContainer, CheckIcon, Button } fro
 import { toDos } from '../Form';
 
 interface toDoProps {
-    data: Array<toDos> | toDos[];
+    data: toDos[];
 }
 
 export function ToDo({data}: toDoProps) {
@@ -34,13 +34,10 @@ export function ToDo({data}: toDoProps) {
 
     const [toDoData, setToDoData] = useState<toDos[]>([]);
 
-    //useState(data) --> isso dá loop de renderização
 
     function handleDoneToDos(checked: boolean | 'indeterminate', toDoId: toDos['id'], toDoChecked: toDos['checked']) {
         if(checked) {
             const doneToDos = data.map(toDo => {return toDo.id == toDoId ? {...toDo, checked: !toDo.checked} : {...toDo, checked: toDo.checked}});
-
-            setToDoData(doneToDos);
         }
     }
 
