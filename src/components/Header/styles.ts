@@ -35,9 +35,16 @@ export const HeaderWrapper = styled.div`
     }
 
     > button {
+        width: 1.5rem;
+        height: 1.5rem;
+
         background-color: transparent;
+        background-image: url(${props => props.theme.colors.backgroundImageButton});
+        background-repeat: no-repeat;
+        background-size: cover;
+
         border: 0;
-        color: ${props => props.theme.colors["gray-200"]};
+        cursor: pointer;
     }
 
     @media screen and (min-width: 768px) {

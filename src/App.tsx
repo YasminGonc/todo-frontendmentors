@@ -12,26 +12,26 @@ import { toDos } from './components/Form'
 
 
 export function App() {
-  const [data, setData] = useState('');
+  const [theme, setTheme] = useState(lightTheme);
+
+  function toggleTheme() {
+    setTheme(theme.title == 'light' ? darkTheme : lightTheme)
+  }
 
   const [toDoData, setToDoData] = useState<Array<toDos> | toDos[]>([]);
-  
-  function newToDoChange(text: string) {
-    //console.log(`Esse texto está sendo enviado para o App do Header: ${text}`);
-    setData(text);
-  }
 
   function newToDo(toDos: Array<toDos> | toDos[]) {
     setToDoData(toDos);
   }
 
   return (
-    <ThemeProvider theme={lightTheme}>
+    <ThemeProvider theme={theme}>
 
       <DndProvider backend={HTML5Backend}>
 
         <Header 
           onNewToDo={newToDo}
+          onToggleTheme={toggleTheme}
         />
         <List 
           data={toDoData}

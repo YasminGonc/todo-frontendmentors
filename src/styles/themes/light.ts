@@ -1,5 +1,6 @@
 import bannerMobile from '../../assets/bg-mobile-light.jpg';
 import bannerDesktop from '../../assets/bg-desktop-light.jpg';
+import moonIcon from '../../assets/icon-moon.svg';
 
 export const lightTheme = {
     title: 'light',
@@ -19,6 +20,7 @@ export const lightTheme = {
 
         background: 'hsl(236, 33%, 92%)',
         backgroundImageMobile: bannerMobile,
-        backgroundImageDesktop: bannerDesktop
+        backgroundImageDesktop: bannerDesktop,
+        backgroundImageButton: moonIcon
     }
 }

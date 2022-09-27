@@ -1,5 +1,6 @@
 import bannerMobile from '../../assets/bg-mobile-dark.jpg';
 import bannerDesktop from '../../assets/bg-desktop-dark.jpg';
+import sunIcon from '../../assets/icon-sun.svg';
 
 export const darkTheme = {
     title: 'dark',
@@ -19,7 +20,8 @@ export const darkTheme = {
 
         background: 'hsl(235, 21%, 11%)',
         backgroundImageMobile: bannerMobile,
-        backgroundImageDesktop: bannerDesktop
+        backgroundImageDesktop: bannerDesktop,
+        backgroundImageButton: sunIcon
     }
 
 }

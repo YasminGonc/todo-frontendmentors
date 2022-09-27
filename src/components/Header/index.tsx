@@ -5,9 +5,10 @@ import { HeaderContainer, HeaderWrapper } from "./styles";
 
 interface HeaderProps {
     onNewToDo: (toDos: Array<toDos> | toDos[]) => void;
+    onToggleTheme: () => void;
 }
 
-export function Header({onNewToDo}: HeaderProps) {
+export function Header({onNewToDo, onToggleTheme}: HeaderProps) {
 
     function newToDo(toDos: Array<toDos> | toDos[]) {
         onNewToDo(toDos);
@@ -17,9 +18,7 @@ export function Header({onNewToDo}: HeaderProps) {
         <HeaderContainer>
             <HeaderWrapper>
                 <h1>todo</h1>
-                <button>
-                    <Moon weight="fill" size={20}/>
-                </button>
+                <button onClick={onToggleTheme} />
             </HeaderWrapper>
 
             <Form 
