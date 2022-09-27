@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import * as Checkbox from '@radix-ui/react-checkbox';
 import { Check } from 'phosphor-react';
 
@@ -15,6 +15,13 @@ export const TodoContainer = styled.div`
     font-size: 0.875rem;
 
     cursor: grab;
+`
+interface LabelProps {
+    checked: boolean;
+}
+
+export const Label = styled.label<LabelProps>`
+    text-decoration: ${props => props.checked ? 'line-through' : 'none'};
 `
 export const CheckboxContainer = styled.div`
     display: flex;

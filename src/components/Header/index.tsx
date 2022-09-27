@@ -8,7 +8,7 @@ interface HeaderProps {
     onToggleTheme: () => void;
 }
 
-export function Header({onNewToDo, onToggleTheme}: HeaderProps) {
+export function Header({ onNewToDo, onToggleTheme }: HeaderProps) {
 
     function newToDo(toDos: toDos) {
         onNewToDo(toDos);
