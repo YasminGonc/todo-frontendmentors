@@ -14,13 +14,10 @@ export const TodoContainer = styled.div<Props>`
     padding: 0.5rem;
     border-bottom: 1px solid ${props => props.theme.colors["gray-200"]};
 
-    //background-color: ${props => props.checked ? props.theme.colors["gray-100"] : props.theme.colors["gray-100"]};
     background-color: ${props => props.theme.colors["gray-100"]};
     opacity: ${props => props.checked ? '0.6' : 'none'};
     color: ${props => props.theme.colors["gray-500"]};
     font-size: 0.875rem;
-
-    cursor: grab;
 `
 export const Label = styled.label<Props>`
     text-decoration: ${props => props.checked ? 'line-through' : 'none'};

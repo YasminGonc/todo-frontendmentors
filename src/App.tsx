@@ -4,8 +4,6 @@ import { ThemeProvider } from 'styled-components'
 import { GlobalStyle } from './styles/global'
 import { lightTheme } from './styles/themes/light'
 import { darkTheme } from './styles/themes/dark'
-import { DndProvider } from 'react-dnd'
-import { HTML5Backend } from 'react-dnd-html5-backend'
 
 import { Header } from './components/Header'
 import { List } from './components/List'
@@ -31,14 +29,14 @@ export function App() {
   }
 
   function handleDoneToDos(checked: boolean | 'indeterminate', toDoId: toDos['id'], toDoChecked: toDos['checked']) {
-    if(checked) {
-      const doneToDos = toDoData.map(toDo => {return toDo.id == toDoId ? {...toDo, checked: !toDo.checked} : {...toDo, checked: toDo.checked}});
+    if (checked) {
+      const doneToDos = toDoData.map(toDo => { return toDo.id == toDoId ? { ...toDo, checked: !toDo.checked } : { ...toDo, checked: toDo.checked } });
 
       setToDoData(doneToDos);
     }
 
     if (!checked && toDoChecked) {
-      const changeDoneToDos = toDoData.map(toDo => {return toDo.id == toDoId ? {...toDo, checked: !toDo.checked} : {...toDo, checked: toDo.checked}});
+      const changeDoneToDos = toDoData.map(toDo => { return toDo.id == toDoId ? { ...toDo, checked: !toDo.checked } : { ...toDo, checked: toDo.checked } });
 
       setToDoData(changeDoneToDos);
     }
@@ -51,7 +49,7 @@ export function App() {
 
     setDoneToDos(completedToDos);
   }
-  
+
   const [activeToDos, setActiveToDos] = useState<toDos[]>([]);
 
   function filterToDosByActiveOnes() {
@@ -61,27 +59,26 @@ export function App() {
   }
 
   return (
+
     <ThemeProvider theme={theme}>
 
-      <DndProvider backend={HTML5Backend}>
+      <Header
+        onNewToDo={newToDo}
+        onToggleTheme={toggleTheme}
+      />
+      <List
+        data={toDoData}
+        toDoCompleted={doneToDos}
+        toDoActive={activeToDos}
+        onDeleteToDo={deleteToDo}
+        onHandleDoneToDos={handleDoneToDos}
+        onFilterToDosByCompletedOnes={filterToDosByCompletedOnes}
+        onfilterToDosByActiveOnes={filterToDosByActiveOnes}
+      />
+      <GlobalStyle />
 
-        <Header 
-          onNewToDo={newToDo}
-          onToggleTheme={toggleTheme}
-        />
-        <List 
-          data={toDoData}
-          toDoCompleted={doneToDos}
-          toDoActive={activeToDos}
-          onDeleteToDo={deleteToDo}
-          onHandleDoneToDos={handleDoneToDos}
-          onFilterToDosByCompletedOnes={filterToDosByCompletedOnes}
-          onfilterToDosByActiveOnes={filterToDosByActiveOnes}
-        />
-        <GlobalStyle />
-
-      </DndProvider>
     </ThemeProvider>
+
   );
 }
 
